@@ -22,6 +22,13 @@ node[:deploy].each do |application, deploy|
     app application
   end
 
+directory "#{deploy[:deploy_to]}/current" do
+  owner 'root'
+  group 'root'
+  mode '0777'
+  action :create
+end
+
 cookbook_file "#{deploy[:deploy_to]}/current/Dockerfile" do
   source 'index.php'
   owner 'root'
