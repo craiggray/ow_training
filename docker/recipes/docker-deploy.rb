@@ -30,7 +30,7 @@ directory "#{deploy[:deploy_to]}/current" do
 end
 
 cookbook_file "#{deploy[:deploy_to]}/current/Dockerfile" do
-  source 'index.php'
+  source 'Dockerfile'
   owner 'root'
   group 'root'
   mode '0777'
