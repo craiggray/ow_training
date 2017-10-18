@@ -43,7 +43,7 @@ template '/var/www/html/index.html' do
 end
 
 # Setup FW
-service 'iptalbes' do
+service 'iptables' do
     action :stop
 end
 
