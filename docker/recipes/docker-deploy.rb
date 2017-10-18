@@ -22,6 +22,14 @@ node[:deploy].each do |application, deploy|
     app application
   end
 
+cookbook_file "#{deploy[:deploy_to]}/current/Dockerfile" do
+  source 'index.php'
+  owner 'root'
+  group 'root'
+  mode '0777'
+  action :create
+end
+
   bash "docker-cleanup" do
     user "root"
     code <<-EOH
